@@ -736,7 +736,7 @@ main {
 
 
 /**
- * #clients 
+ * #certifications 
  */
 
 .clients { margin-bottom: 15px; }
@@ -763,11 +763,11 @@ main {
 
 .clients-item img {
   width: 100%;
-  filter: grayscale(1);
+
   transition: var(--transition-1);
 }
 
-.clients-item img:hover { filter: grayscale(0); }
+.clients-item img:hover  { filter: grayscale(0); }
 
 
 
@@ -1120,6 +1120,7 @@ main {
 }
 
 .blog-post-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
+.project-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
 
 .blog-text {
   color: var(--light-gray);
