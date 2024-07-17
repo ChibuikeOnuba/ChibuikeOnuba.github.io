@@ -74,7 +74,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:onubawinner042@gmail.com" class="contact-link">onubawinner042@gmail.com</a>
+              <a href="mailto:onubawinner042@gmail.com" class="contact-link"><span id="copyText1" title="Click to copy">onubawinner042@gmail.com</span></a>
             </div>
 
           </li>
@@ -88,7 +88,7 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+2348144383321" class="contact-link">+234 814-438-3321</a>
+              <a href="tel:+2348144383321" class="contact-link"><span id="copyText" title="Click to copy">+234 814 438 3321</span></a>
             </div>
 
           </li>
@@ -522,49 +522,56 @@
 
           <ul class="clients-list has-scrollbar">
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/aspire.jpg" alt="aspire program">
+              <a style="cursor: pointer;">
+                <img src="./assets/images/aspire.jpg" alt="aspire program" class="image">
+              </a>
+            </li>
+            <li class="clients-item">
+              <a style="cursor: pointer;">
+                <img src="./assets/images/Klausterthon hackathon.png" alt="sql with IBM" class="image">
+              </a>
+            </li>
+            <li class="clients-item">
+              <a style="cursor: pointer;">
+                <img src="./assets/images/cert3.png" alt="Python for AI" class="image">
+              </a>
+            </li>
+            <li class="clients-item">
+              <a style="cursor: pointer;">
+                <img src="./assets/images/omdena-cert.png" alt="Omdena project completion" class="image">
               </a>
               
             </li>
-
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/cert3.png" alt="Python for AI">
+              <a style="cursor: pointer;">
+                <img src="./assets/images/intro-dsc.png" alt="intro to Dsc" class="image">
               </a>
             </li>
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/omdena-cert.png" alt="Omdena project completion">
-              </a>
-              
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/intro-dsc.png" alt="intro to Dsc">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/cert4.png" alt="MLops lifecycle">
+              <a style="cursor: pointer;">
+                <img src="./assets/images/cert4.png" alt="MLops lifecycle" class="image">
               </a>
             </li>
 
             
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/ds-python.png" alt="Data analysis with IBM">
+              <a style="cursor: pointer;">
+                <img src="./assets/images/ds-python.png" alt="Data analysis with IBM" class="image">
               </a>
             </li>
 
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/ds-sql.png" alt="sql with IBM">
+              <a style="cursor: pointer;">
+                <img src="./assets/images/ds-sql.png" alt="sql with IBM" class="image">
               </a>
             </li>
 
           </ul>
 
+          <!-- modal image viewer-->
+          <div id="modal-image" style="display: none;">
+            <img src="" id="modal-image-content"/>
+          </div>
         </section>
 
       </article>
@@ -799,18 +806,6 @@
 
             <li class="filter-item">
               <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web design</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
             </li>
 
           </ul>
@@ -1196,7 +1191,7 @@
 
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
+            <button class="form-btn" type="submit" data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
