@@ -14,7 +14,15 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
 
-
+// copy text
+document.getElementById("copyText1").addEventListener("click", function(){
+  const text = "onubawinner042@gmail.com";
+  navigator.clipboard.writeText(text);
+});
+document.getElementById("copyText").addEventListener("click", function(){
+  const text = "+2348144383321";
+  navigator.clipboard.writeText(text);
+});
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
@@ -26,6 +34,22 @@ const overlay = document.querySelector("[data-overlay]");
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
+
+// modal image
+const images = document.querySelectorAll('.image');
+const modalImage = document.getElementById('modal-image');
+const modalImageContent = document.getElementById('modal-image-content');
+
+images.forEach(image => {
+  image.addEventListener('click', () => {
+    modalImage.style.display='flex';
+    modalImageContent.src = image.src;
+});
+});
+modalImage.addEventListener('click', () => {
+  modalImage.style.display = 'none'
+});
+
 
 // modal toggle function
 const testimonialsModalFunc = function () {
