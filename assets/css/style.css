@@ -36,24 +36,24 @@ a {
     hsla(240, 2%, 11%, 0) 100%
   ), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(
-    to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
-    hsla(36, 100%, 69%, 0) 50%
+    to bottom right,
+    hsl(189, 94%, 60%) 0%,
+    hsla(189, 94%, 60%, 0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
-    135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
-    hsla(35, 100%, 68%, 0) 59.86%
+    135deg,
+    hsla(258, 90%, 66%, 0.251) 0%,
+    hsla(258, 90%, 66%, 0) 59.86%
   ), hsl(240, 2%, 13%);
   --border-gradient-onyx: linear-gradient(
-    to bottom right, 
-    hsl(0, 0%, 25%) 0%, 
+    to bottom right,
+    hsl(0, 0%, 25%) 0%,
     hsla(0, 0%, 25%, 0) 50%
   );
   --text-gradient-yellow: linear-gradient(
-    to right, 
-    hsl(45, 100%, 72%), 
-    hsl(35, 100%, 68%)
+    to right,
+    hsl(189, 94%, 60%),
+    hsl(258, 90%, 66%)
   );
 
   /* solid */
@@ -65,11 +65,11 @@ a {
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
+  --orange-yellow-crayola: hsl(189, 94%, 60%);
+  --vegas-gold: hsl(258, 90%, 76%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
-  --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --bittersweet-shimmer: hsl(0, 70%, 58%);
 
   /**
    * typography
@@ -77,6 +77,7 @@ a {
 
   /* font-family */
   --ff-poppins: 'Poppins', sans-serif;
+  --ff-mono: 'JetBrains Mono', monospace;
 
   /* font-size */
   --fs-1: 24px;
@@ -157,7 +158,14 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--smoky-black); }
+body {
+  background-color: var(--smoky-black);
+  background-image:
+    linear-gradient(hsla(189, 94%, 60%, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, hsla(189, 94%, 60%, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
+}
 
 
 
@@ -257,6 +265,14 @@ article.active {
   border-radius: 3px;
 }
 
+.article-title::before,
+h3.h3::before {
+  content: "// ";
+  font-family: var(--ff-mono);
+  color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-400);
+}
+
 .has-scrollbar::-webkit-scrollbar {
   width: 5px; /* for vertical scrollbar */
   height: 5px; /* for horizontal scrollbar */
@@ -347,8 +363,9 @@ main {
 }
 
 .info-content .title {
-  color: var(--white-1);
+  color: var(--orange-yellow-crayola);
   background: var(--onyx);
+  font-family: var(--ff-mono);
   font-size: var(--fs-8);
   font-weight: var(--fw-300);
   width: max-content;
@@ -419,6 +436,7 @@ main {
 
 .contact-title {
   color: var(--light-gray-70);
+  font-family: var(--ff-mono);
   font-size: var(--fs-8);
   text-transform: uppercase;
   margin-bottom: 2px;
@@ -479,6 +497,7 @@ main {
 
 .navbar-link {
   color: var(--light-gray);
+  font-family: var(--ff-mono);
   font-size: var(--fs-8);
   padding: 20px 7px;
   transition: color var(--transition-1);
@@ -507,6 +526,63 @@ main {
 }
 
 .about-text p { margin-bottom: 15px; }
+
+
+/**
+ * #code-card (about_me.py)
+ */
+
+.code-card {
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-2);
+}
+
+.code-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--onyx);
+  border-bottom: 1px solid var(--jet);
+}
+
+.code-card-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.code-card-dot.red { background: hsl(0, 70%, 58%); }
+.code-card-dot.yellow { background: hsl(45, 90%, 60%); }
+.code-card-dot.green { background: hsl(140, 60%, 50%); }
+
+.code-card-filename {
+  margin-left: 8px;
+  color: var(--light-gray-70);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-8);
+}
+
+.code-card-body {
+  padding: 18px 20px;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-7);
+  line-height: 1.8;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.code-card-body span { display: inline; }
+
+.code-card-body .cm { color: var(--light-gray-70); }
+.code-card-body .kw { color: var(--vegas-gold); }
+.code-card-body .fn { color: var(--orange-yellow-crayola); }
+.code-card-body .st { color: hsl(140, 55%, 62%); }
+.code-card-body .pl { color: var(--light-gray); }
 
 
 
@@ -834,6 +910,8 @@ main {
 
 .timeline-list span {
   color: var(--vegas-gold);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-7);
   font-weight: var(--fw-400);
   line-height: 1.6;
 }
@@ -887,6 +965,7 @@ main {
 
 .skill .title-wrapper data {
   color: var(--light-gray);
+  font-family: var(--ff-mono);
   font-size: var(--fs-7);
   font-weight: var(--fw-300);
 }
@@ -1126,7 +1205,8 @@ main {
 
 .blog-meta :is(.blog-category, time) {
   color: var(--light-gray-70);
-  font-size: var(--fs-6);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-7);
   font-weight: var(--fw-300);
 }
 
