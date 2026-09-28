@@ -50,6 +50,54 @@ modalImage.addEventListener('click', () => {
   modalImage.style.display = 'none'
 });
 
+// project preview dialog
+const projectDialog = document.querySelector("[data-project-dialog]");
+const projectPreviewImage = document.querySelector("[data-project-preview-image]");
+const projectPreviewTitle = document.querySelector("[data-project-preview-title]");
+const projectPreviewSummary = document.querySelector("[data-project-preview-summary]");
+const projectPreviewStack = document.querySelector("[data-project-preview-stack]");
+const projectLiveDemo = document.querySelector("[data-project-live-demo]");
+const projectSourceCode = document.querySelector("[data-project-source-code]");
+
+const setProjectLink = function (link, url) {
+  if (url) {
+    link.href = url;
+    link.hidden = false;
+  } else {
+    link.removeAttribute("href");
+    link.hidden = true;
+  }
+};
+
+document.querySelectorAll("[data-project-preview]").forEach(function (previewButton) {
+  previewButton.addEventListener("click", function () {
+    const project = previewButton.closest("[data-filter-item]");
+    const image = previewButton.querySelector("img");
+    const title = project.querySelector(".blog-item-title").textContent.trim();
+
+    projectPreviewImage.src = image.currentSrc || image.src;
+    projectPreviewImage.alt = image.alt;
+    projectPreviewTitle.textContent = title;
+    projectPreviewSummary.textContent = project.dataset.projectSummary || title;
+    projectPreviewStack.textContent = project.dataset.techStack || "Details coming soon";
+    setProjectLink(projectLiveDemo, project.dataset.liveDemo);
+    setProjectLink(projectSourceCode, project.dataset.sourceCode);
+    projectDialog.showModal();
+  });
+});
+
+document.querySelector("[data-project-preview-close]").addEventListener("click", function () {
+  projectDialog.close();
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && projectDialog.open) projectDialog.close();
+});
+
+projectDialog.addEventListener("click", function (event) {
+  if (event.target === projectDialog) projectDialog.close();
+});
+
 
 // modal toggle function
 const testimonialsModalFunc = function () {
