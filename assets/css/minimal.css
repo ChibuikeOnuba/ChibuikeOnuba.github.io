@@ -125,6 +125,8 @@ input:focus-visible {
 
 .home-text {
   align-self: center;
+  justify-self: center;
+  width: 100%;
   max-width: var(--measure);
   padding: 4rem clamp(1.5rem, 5vw, 5rem);
 }
@@ -288,6 +290,7 @@ input:focus-visible {
   font-weight: 400;
   font-size: clamp(1.5rem, 3vw, 2rem);
   line-height: 1.25;
+  color: var(--accent);
 }
 
 .entry-title a {
@@ -311,6 +314,72 @@ input:focus-visible {
   margin: 0.25rem 0 0.75rem;
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+/* "More details" toggle (native <details>, no JavaScript) */
+
+.entry-details {
+  margin-top: 0.75rem;
+  text-align: left;
+}
+
+.entry-details summary {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.entry-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.entry-details summary::before {
+  content: "+ ";
+}
+
+.entry-details[open] summary::before {
+  content: "\2212  ";
+}
+
+.entry-details summary:hover {
+  color: var(--accent);
+}
+
+/* center the toggle under the item, keep the detail text left-aligned */
+.entry-details:not([open]),
+.entry-details summary {
+  text-align: center;
+  width: 100%;
+}
+
+.entry-details p {
+  margin: 0.75rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.entry-details strong {
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* an open item aligns to the top so the image stays in view */
+.entry:has(.entry-details[open]) {
+  align-items: start;
+}
+
+.entry:has(.entry-details[open]) .entry-media {
+  position: sticky;
+  top: 2rem;
+}
+
+@media (max-width: 760px) {
+  .entry:has(.entry-details[open]) .entry-media {
+    position: static;
+  }
 }
 
 /* ---------- Experience page ---------- */

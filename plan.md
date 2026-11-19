@@ -150,6 +150,8 @@ Each step ends with a check-in with you before moving on.
 - [x] **Step 4.** Projects page: `projects.html`, 12 items, tech stack in the date spot, "In production" project kept without a link
 - [x] **Step 5.** Writing page: `writing.html`, 5 articles (broken-link article dropped), dates shown, "on Medium" link in header. Summaries are short rewrites of the old excerpts, please review
 - [x] **Step 6.** Experience page: `experience.html`, 4 roles (no Thera metrics), education, 2 trimmed testimonials with `[...]` marking cuts, resume link. Checked desktop + phone, all image paths verified
+- [x] **Step 6a.** Changes after review: new photo (`winner 2.jpg` saved as compressed `portrait.jpg`), home text centered. Projects: added Probe (live site screenshot as image) and CertainML (placeholder), "More details" toggles (native `<details>`, no JS) on Probe, ETL, Condition Classification, askDB. Fixed ETL and askDB tech stacks to match their READMEs
+- [ ] **Step 6c.** CertainML: needs a description from you (repo is private, could not read it). Replace placeholder image `project-1.jpg`
 - [ ] **Step 6b.** Newsletter: connect the home page sign-up to Buttondown and test a real sign-up (blocked until you share your Buttondown username)
 - [ ] **Step 7.** Mobile and polish: check at phone width, image sizes, link checks, page titles, favicon
 - [ ] **Step 8.** Review: you preview locally (Live Server), we fix anything you flag

@@ -35,14 +35,88 @@
     <ol class="entries">
 
       <li class="entry">
+        <a class="entry-media" href="https://probe-com.vercel.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="./assets/images/probe.png" alt="" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h2 class="entry-title"><a href="https://probe-com.vercel.app/" target="_blank" rel="noopener">Probe</a></h2>
+          <p class="entry-meta">AI agents, LLMs, web automation</p>
+          <p class="entry-summary">Write a task in one sentence and get back a finished help center article, with exact steps and a screenshot for each one.</p>
+          <a href="https://probe-com.vercel.app/" target="_blank" rel="noopener">See the live site</a>
+          <details class="entry-details">
+            <summary>More details</summary>
+            <p><strong>The problem.</strong> Help center articles take a long time to write by hand, and they go out of date every time the app changes.</p>
+            <p><strong>How it works.</strong> You give Probe your app's address, a test login, and a goal in plain English. It maps the app's screens, including tabs and dialogs, then walks through the task with test data. It drafts numbered steps with exact button names and a screenshot for each step, and asks you about anything it couldn't see.</p>
+            <p><strong>Safety.</strong> It stops before irreversible actions such as delete, send, or invite, and runs on your own machine. Only screenshots go to the AI model.</p>
+            <p><strong>Keeping articles current.</strong> After an app change, a rescan re-describes only new or changed screens. Approved articles export as Markdown, rich text, or a zip with images, and can be translated, with translations flagged when a newer version is approved.</p>
+            <p><strong>Status.</strong> Working prototype.</p>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
         <a class="entry-media" href="https://github.com/ChibuikeOnuba/ETL-Pipeline-Silent-Failure-Detection" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
           <img src="./assets/images/etlfailure.png" alt="" loading="lazy">
         </a>
         <div class="entry-body">
           <h2 class="entry-title"><a href="https://github.com/ChibuikeOnuba/ETL-Pipeline-Silent-Failure-Detection" target="_blank" rel="noopener">ETL Pipeline Silent Failure Detection</a></h2>
-          <p class="entry-meta">Python, vector embeddings, semantic search</p>
-          <p class="entry-summary">A monitoring system that detects silent data pipeline failures across multiple ETL layers.</p>
+          <p class="entry-meta">Python, Streamlit, data quality monitoring</p>
+          <p class="entry-summary">Catches the pipeline failures that don't throw errors: the run finishes, but the data is wrong.</p>
           <a href="https://github.com/ChibuikeOnuba/ETL-Pipeline-Silent-Failure-Detection" target="_blank" rel="noopener">View on GitHub</a>
+          <details class="entry-details">
+            <summary>More details</summary>
+            <p><strong>The problem.</strong> Loud failures crash and get fixed. Silent failures finish successfully and quietly pass bad data downstream.</p>
+            <p><strong>How it works.</strong> A multi-stage pipeline (ingest, enrich, transform, aggregate) runs on the Olist e-commerce dataset of 99,441 orders. It runs twice: once clean as a baseline, and once with a failure injected at the stage where it would realistically start. A detection engine then compares every column at every stage.</p>
+            <p><strong>What it catches.</strong> Seven failure types: dropped records, stale timestamps, null floods, price corruption, duplicates, schema drift, and canary removal. On a clean pipeline it runs 98 checks covering row counts, null rates, distributions, timestamp freshness, canary records, cross-stage leakage, and category drift.</p>
+            <p><strong>Limits and next steps.</strong> Today it uses a single-run baseline and fixed thresholds. Version 2 plans a rolling baseline, dynamic thresholds, and ML-based anomaly detection.</p>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="entry-media">
+          <img src="./assets/images/Patient%20Condition%20Classification.png" alt="" loading="lazy">
+        </div>
+        <div class="entry-body">
+          <h2 class="entry-title">Condition Classification and Drug Recommendation</h2>
+          <p class="entry-meta">Python, NLP, Transformers, text classification</p>
+          <p class="entry-summary">Classifies patient conditions and recommends drugs using NLP-driven analysis of reviews.</p>
+          <p class="entry-meta">Failed PhD Research Attempt</p>
+          <details class="entry-details">
+            <summary>More details</summary>
+            <p><strong>The question.</strong> How do traditional machine learning models compare to Transformer models at classifying a patient's condition from the text of their drug reviews?</p>
+            <p><strong>The approach.</strong> Predict the patient's condition from what they wrote about a drug, then use the analysis of those reviews to recommend drugs for that condition.</p>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="entry-media">
+          <img src="./assets/images/project-1.jpg" alt="" loading="lazy">
+        </div>
+        <div class="entry-body">
+          <h2 class="entry-title">CertainML</h2>
+          <p class="entry-meta">Python, machine learning</p>
+          <!-- TODO: replace with a real one-line description and details from the certainml README -->
+          <p class="entry-summary">Description coming soon.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <a class="entry-media" href="https://github.com/ChibuikeOnuba/askDB/tree/main" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="./assets/images/askdb.gif" alt="" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h2 class="entry-title"><a href="https://github.com/ChibuikeOnuba/askDB/tree/main" target="_blank" rel="noopener">askDB</a></h2>
+          <p class="entry-meta">Python, LangChain, GPT-4o-mini, MySQL, Streamlit</p>
+          <p class="entry-summary">Ask your database questions in plain English and get answers, without writing SQL.</p>
+          <a href="https://github.com/ChibuikeOnuba/askDB/tree/main" target="_blank" rel="noopener">View on GitHub</a>
+          <details class="entry-details">
+            <summary>More details</summary>
+            <p><strong>The problem.</strong> Most people who need answers from a database can't write SQL.</p>
+            <p><strong>How it works.</strong> You ask a question in a Streamlit app. LangChain sends it to GPT-4o-mini along with the table schema and three sample rows per table, and the model writes one SQL query. You can review and edit the SQL before it runs against MySQL. The result goes back to the model, which explains it in plain English.</p>
+            <p><strong>Limits and next steps.</strong> It works best for single-value answers, and since generated SQL runs without a guardrail, it should connect with a read-only database user. Measuring SQL accuracy on a fixed set of test questions is next on the roadmap.</p>
+          </details>
         </div>
       </li>
 
@@ -67,30 +141,6 @@
           <p class="entry-meta">Python, FastAPI, JWT, REST API</p>
           <p class="entry-summary">A blog API with JWT authentication, user management, and create, read, update, and delete operations.</p>
           <a href="https://github.com/ChibuikeOnuba/AI-Engineer-Roadmap" target="_blank" rel="noopener">View on GitHub</a>
-        </div>
-      </li>
-
-      <li class="entry">
-        <a class="entry-media" href="https://github.com/ChibuikeOnuba/askDB/tree/main" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-          <img src="./assets/images/askdb.gif" alt="" loading="lazy">
-        </a>
-        <div class="entry-body">
-          <h2 class="entry-title"><a href="https://github.com/ChibuikeOnuba/askDB/tree/main" target="_blank" rel="noopener">askDB</a></h2>
-          <p class="entry-meta">NLP, SQL, data visualization</p>
-          <p class="entry-summary">Turns natural-language questions into SQL queries and returns insights from your data.</p>
-          <a href="https://github.com/ChibuikeOnuba/askDB/tree/main" target="_blank" rel="noopener">View on GitHub</a>
-        </div>
-      </li>
-
-      <li class="entry">
-        <div class="entry-media">
-          <img src="./assets/images/Patient%20Condition%20Classification.png" alt="" loading="lazy">
-        </div>
-        <div class="entry-body">
-          <h2 class="entry-title">Condition Classification and Drug Recommendation</h2>
-          <p class="entry-meta">Python, NLP, text classification, recommendation systems</p>
-          <p class="entry-summary">Classifies patient conditions and recommends drugs using NLP-driven analysis of reviews.</p>
-          <p class="entry-meta">In production</p>
         </div>
       </li>
 
