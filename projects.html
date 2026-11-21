@@ -69,6 +69,7 @@
             <p><strong>How it works.</strong> A multi-stage pipeline (ingest, enrich, transform, aggregate) runs on the Olist e-commerce dataset of 99,441 orders. It runs twice: once clean as a baseline, and once with a failure injected at the stage where it would realistically start. A detection engine then compares every column at every stage.</p>
             <p><strong>What it catches.</strong> Seven failure types: dropped records, stale timestamps, null floods, price corruption, duplicates, schema drift, and canary removal. On a clean pipeline it runs 98 checks covering row counts, null rates, distributions, timestamp freshness, canary records, cross-stage leakage, and category drift.</p>
             <p><strong>Limits and next steps.</strong> Today it uses a single-run baseline and fixed thresholds. Version 2 plans a rolling baseline, dynamic thresholds, and ML-based anomaly detection.</p>
+            <p><strong>Write-up.</strong> <a href="https://medium.com/@onubachibuike/exit-code-0-broken-data-how-to-catch-silent-failures-in-data-pipelines-5eb59961b760" target="_blank" rel="noopener">Exit Code 0, Broken Data</a> on Medium.</p>
           </details>
         </div>
       </li>
