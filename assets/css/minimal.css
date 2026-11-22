@@ -412,6 +412,135 @@ input:focus-visible {
   color: var(--accent);
 }
 
+.section-wide {
+  max-width: 56rem;
+}
+
+/* Work path: cards alternate left/right, joined by curved dotted lines */
+
+.path {
+  position: relative;
+}
+
+.stop {
+  position: relative;
+  width: 60%;
+  padding: 1.5rem 1.6rem 1.35rem;
+  background: var(--field-bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+}
+
+.stop:nth-of-type(even) {
+  margin-left: auto;
+}
+
+/* node where the path meets the card */
+.stop::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg);
+}
+
+.stop-date {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.stop-now {
+  display: inline-block;
+  margin-right: 0.4rem;
+  padding: 0.05rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  vertical-align: 0.1em;
+}
+
+.stop h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+
+.stop-org {
+  margin: 0.1rem 0 0.75rem;
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+}
+
+.stop ul {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.stop li + li {
+  margin-top: 0.35rem;
+}
+
+.stop li::marker {
+  color: var(--edge);
+}
+
+.stop-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.stop-tags span {
+  padding: 0.1rem 0.65rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.path-link {
+  height: 7.5rem;
+}
+
+.path-link svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.path-link path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-opacity: 0.55;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0 9;
+  vector-effect: non-scaling-stroke;
+}
+
 .roles {
   list-style: none;
   margin: 0;
@@ -506,5 +635,27 @@ input:focus-visible {
 
   .site-nav a {
     font-size: 1.05rem;
+  }
+
+  /* path becomes a straight dotted line on phones */
+  .stop {
+    width: 100%;
+    padding: 1.35rem 1.15rem 1.2rem;
+  }
+
+  .path-link {
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .path-link svg {
+    display: none;
+  }
+
+  .path-link::before {
+    content: "";
+    border-left: 3px dotted var(--accent);
+    opacity: 0.55;
   }
 }
