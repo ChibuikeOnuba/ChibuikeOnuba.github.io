@@ -24,15 +24,15 @@
 
   var DATA = [
     // ---------- Learning ----------
-    { lane: "learning", track: 0, start: "2020-01", end: "2024-01", // CONFIRM: graduation month
+    { lane: "learning", track: 0, start: "2020-01", end: "2024-03",
       title: "BSc Computer Science", org: "University of Nigeria, Nsukka",
       note: "ML/AI, data structures and algorithms, database design", href: "#education" },
-    { lane: "learning", track: 0, start: "2024-01", end: null, extend: true,
+    { lane: "learning", track: 0, start: "2024-03", end: null, extend: true,
       title: "Always learning", note: "Courses, papers, and learning on the job. It never really stops." },
     { lane: "learning", track: 1, date: "2020-04", when: "2020", label: true,
       title: "Started coding", note: "Picked up programming during the COVID-19 lockdown" },
-    { lane: "learning", track: 1, date: "2024-06", when: "2024", label: true,
-      title: "Aspire Leaders Program", org: "Harvard Business School", href: "#education" },
+    { lane: "learning", track: 1, start: "2024-01", end: "2024-04",
+      title: "Aspire Leaders Program", org: "Harvard Business School", short: "HBS Aspire", href: "#education" },
 
     // ---------- Building (approximate dates unless noted) ----------
     { lane: "building", date: "2021-03", title: "Diabetes Prediction", note: "ML classification", href: "projects.html" },
@@ -59,12 +59,14 @@
       title: "Freelance Data Scientist", org: "Upwork", href: "#role-upwork" },
     { lane: "working", track: 0, start: "2025-01", end: null,
       title: "Customer Success Manager", org: "Thera (YC S22)", href: "#role-thera" },
-    { lane: "working", track: 1, date: "2021-06", when: "2021", label: true,
-      title: "HamoyeAI", org: "Internship", note: "Fine-tuned ML models, computer vision, energy efficiency prediction" },
+    { lane: "working", track: 1, start: "2022-07", end: "2022-11",
+      title: "Data Science Intern", org: "Hamoye", href: "#role-hamoye" },
+    { lane: "working", track: 1, start: "2022-11", end: "2023-01",
+      title: "Data Science and Analytics Intern", org: "Sparks Foundation", href: "#role-sparks" },
     { lane: "working", track: 1, start: "2023-01", end: "2023-05",
-      title: "Data Scientist (internship)", org: "OmdenaAI", href: "#role-omdena" },
+      title: "Data Scientist (internship)", org: "Omdena", href: "#role-omdena" },
     { lane: "working", track: 1, start: "2023-05", end: "2023-10",
-      title: "Data Analyst (internship)", org: "Transcorp", href: "#role-transcorp" }
+      title: "Data Analyst (internship)", org: "Transcorp Group", href: "#role-transcorp" }
   ];
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -252,7 +254,7 @@
         bar.setAttribute("aria-label", describe(d));
         bar.style.left = pct(left) + "%";
         bar.style.width = "calc(" + (pct(right) - pct(left)) + "% - 2px)";
-        var label = el("span", "gantt-label", d.extend ? d.title : (d.org || d.title));
+        var label = el("span", "gantt-label", d.extend ? d.title : (d.short || d.org || d.title));
         bar.appendChild(label);
         slot.node.appendChild(bar);
         slot.bars.push({ d: d, left: left, right: right, text: label });
@@ -285,7 +287,6 @@
     tip.setAttribute("role", "status");
     root.appendChild(tip);
 
-    buildTable();
 
     window.addEventListener("resize", function () { if (!root.closest("[hidden]")) layout(); });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (!root.closest("[hidden]")) layout(); });
@@ -356,27 +357,4 @@
     });
   }
 
-  // ---------- table view (text alternative) ----------
-  function buildTable() {
-    var details = el("details", "gantt-table");
-    details.appendChild(el("summary", null, "View as a table"));
-    var table = el("table");
-    var thead = el("thead");
-    var hr = el("tr");
-    ["Area", "What", "Where / note", "When"].forEach(function (h) { hr.appendChild(el("th", null, h)); });
-    thead.appendChild(hr);
-    table.appendChild(thead);
-    var tbody = el("tbody");
-    BANDS.concat(DATA).forEach(function (d) {
-      var tr = el("tr");
-      tr.appendChild(el("td", null, laneLabel(d.lane)));
-      tr.appendChild(el("td", null, (d.title || d.label) + (d.private ? " (private)" : "")));
-      tr.appendChild(el("td", null, d.org || d.note || ""));
-      tr.appendChild(el("td", null, d.title ? dateText(d) : fmt(toM(d.start)) + " to " + fmt(toM(d.end))));
-      tbody.appendChild(tr);
-    });
-    table.appendChild(tbody);
-    details.appendChild(table);
-    root.appendChild(details);
-  }
 })();
