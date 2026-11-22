@@ -32,12 +32,19 @@
       <p>or grab <a href="assets/ONUBA%20CHIBUIKE%20RESUME.pdf">my full resume (PDF)</a></p>
     </header>
 
+    <section class="section section-wide" aria-labelledby="journey-heading">
+      <h2 id="journey-heading">The path so far</h2>
+      <p class="section-intro">Learning, building, and working since 2020. Hover or tap anything for details, click to jump to it.</p>
+      <div class="gantt" id="journey"></div>
+      <noscript><p class="section-intro">The timeline needs JavaScript. Everything in it is also listed below.</p></noscript>
+    </section>
+
     <section class="section section-wide" aria-labelledby="work-heading">
       <h2 id="work-heading">Work</h2>
 
       <div class="path" role="list">
 
-        <article class="stop" role="listitem">
+        <article class="stop" role="listitem" id="role-thera">
           <p class="stop-date"><span class="stop-badge">Now</span> Jan 2025 to present</p>
           <h3>Customer Success Manager</h3>
           <p class="stop-org">Thera (YC S22)</p>
@@ -53,7 +60,7 @@
           <svg viewBox="0 0 900 190"><path d="M225 0 C225 70 265 135 345 132 C400 130 412 74 373 70 C336 66 328 118 395 132 C520 158 675 100 675 190"/></svg>
         </div>
 
-        <article class="stop" role="listitem">
+        <article class="stop" role="listitem" id="role-transcorp">
           <p class="stop-date"><span class="stop-badge stop-badge-outline">Internship</span> May 2023 to Oct 2023</p>
           <h3>Data Analyst</h3>
           <p class="stop-org">Transcorp</p>
@@ -69,7 +76,7 @@
           <svg viewBox="0 0 900 190"><path d="M675 0 C690 70 610 92 500 92 C380 92 320 70 285 110 C250 150 225 150 225 190"/></svg>
         </div>
 
-        <article class="stop" role="listitem">
+        <article class="stop" role="listitem" id="role-omdena">
           <p class="stop-date"><span class="stop-badge stop-badge-outline">Internship</span> Jan 2023 to May 2023</p>
           <h3>Data Scientist</h3>
           <p class="stop-org">OmdenaAI</p>
@@ -85,7 +92,7 @@
           <svg viewBox="0 0 900 190"><path d="M225 0 C205 60 290 80 360 66 S470 25 505 70 C530 102 488 128 462 104 C440 84 520 70 600 110 S680 150 675 190"/></svg>
         </div>
 
-        <article class="stop" role="listitem">
+        <article class="stop" role="listitem" id="role-upwork">
           <p class="stop-date">Jan 2020 to Jan 2025</p>
           <h3>Freelance Data Scientist</h3>
           <p class="stop-org">Upwork</p>
@@ -98,7 +105,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="edu-heading">
+    <section class="section" aria-labelledby="edu-heading" id="education">
       <h2 id="edu-heading">Education</h2>
       <ol class="roles">
 
@@ -130,6 +137,8 @@
     </section>
 
   </main>
+
+  <script src="./assets/js/journey.js" defer></script>
 
 </body>
 
