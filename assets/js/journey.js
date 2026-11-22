@@ -55,7 +55,7 @@
     { lane: "building", date: "2026-11", title: "Exit Code 0, Broken Data", note: "Article", href: "writing.html" },          // known
 
     // ---------- Working ----------
-    { lane: "working", track: 0, start: "2020-06", end: "2025-01",
+    { lane: "working", track: 0, start: "2023-01", end: "2025-01",
       title: "Freelance Data Scientist", org: "Upwork", href: "#role-upwork" },
     { lane: "working", track: 0, start: "2025-01", end: null,
       title: "Customer Success Manager", org: "Thera (YC S22)", href: "#role-thera" },
