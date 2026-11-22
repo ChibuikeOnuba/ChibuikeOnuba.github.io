@@ -49,7 +49,7 @@
     { lane: "building", date: "2025-03", title: "FastAPI Blog API", note: "JWT auth, CRUD API", href: "projects.html" },
     { lane: "building", date: "2025-07", title: "Document Chunking and Embedding Pipeline", note: "Semantic search", href: "projects.html" },
     { lane: "building", date: "2025-10", label: true, title: "askDB", note: "Plain-English questions to SQL", href: "projects.html" },
-    { lane: "building", date: "2026-03", private: true, label: true, title: "CertainML", note: "Private project", href: "projects.html" },
+    { lane: "building", date: "2026-03", private: true, label: true, title: "CertainML", note: "Private project" },
     { lane: "building", date: "2026-07", title: "ETL Silent Failure Detection", note: "Data pipeline monitoring app", href: "projects.html" },
     { lane: "building", date: "2026-10", title: "Probe", note: "AI agent that writes help center articles", href: "projects.html" }, // known
     { lane: "building", date: "2026-11", title: "Exit Code 0, Broken Data", note: "Article", href: "writing.html" },          // known
