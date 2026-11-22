@@ -659,6 +659,7 @@ input:focus-visible {
   --lane-learning: #d99a22;
   --lane-building: #0a7fa6;
   --lane-working: #c2410c;
+  --lane-private: #7c3aed;
   --lane-learning-ink: #1f1a12; /* label text inside amber */
   --lane-ink: #ffffff;          /* label text inside blue/orange */
   --grid: #efe9e1;
@@ -670,6 +671,7 @@ input:focus-visible {
     --lane-learning: #ad9230;
     --lane-building: #2f95d6;
     --lane-working: #d9542a;
+    --lane-private: #8456e8;
     --lane-learning-ink: #1b1916;
     --lane-ink: #ffffff;
     --grid: #2c2824;
@@ -686,6 +688,7 @@ input:focus-visible {
 .gantt {
   --name-w: 6.5rem;
   --track-h: 2.25rem;
+  --end-w: 4.75rem;
   position: relative;
 }
 
@@ -776,6 +779,9 @@ input:focus-visible {
   margin-top: -11px;
   border-radius: 4px;
   background: var(--lane);
+  border: 0;
+  padding: 0;
+  color: inherit;
   font: inherit;
   font-style: normal;
   text-decoration: none;
@@ -866,7 +872,7 @@ input:focus-visible {
   top: 0;
   bottom: 0;
   left: var(--name-w);
-  right: 0;
+  right: var(--end-w);
   pointer-events: none;
 }
 
@@ -1022,4 +1028,153 @@ input:focus-visible {
   .gantt-lane-name {
     font-size: 0.9rem;
   }
+}
+
+/* ---------- Experience: view switch + timeline additions ---------- */
+
+[hidden] {
+  display: none !important;
+}
+
+.view-switch {
+  display: flex;
+  width: max-content;
+  margin: -1.5rem auto 3rem;
+  padding: 3px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--field-bg);
+}
+
+.view-switch button {
+  padding: 0.35rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.view-switch button[aria-pressed="true"] {
+  background: var(--bg);
+  color: var(--accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* right-hand column: GitHub link at the end of the Building lane */
+.gantt-end {
+  flex: 0 0 var(--end-w);
+  display: flex;
+  align-items: center;
+  padding-left: 0.6rem;
+}
+
+.gantt-github {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.gantt-github::after {
+  content: " \2197";
+  font-style: normal;
+}
+
+/* lighter, fading extension: learning never stops */
+.gantt-bar.is-extend {
+  background: linear-gradient(to right,
+    color-mix(in srgb, var(--lane) 38%, transparent),
+    color-mix(in srgb, var(--lane) 22%, transparent) 70%,
+    transparent);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.gantt-bar.is-extend .gantt-label.is-inside {
+  color: var(--text);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* private project dots */
+.gantt-dot.is-private::before {
+  background: var(--lane-private);
+}
+
+/* grouped dots: a dot with a "+N" count */
+.gantt-dot.is-group::before {
+  box-shadow: 0 0 0 2px var(--bg), 3px -3px 0 2px color-mix(in srgb, var(--lane) 45%, var(--bg));
+}
+
+.gantt-dot .gantt-label.is-count {
+  left: calc(100% - 3px);
+  padding: 0.15rem 0.4rem;
+  border-radius: 999px;
+  background: var(--field-bg);
+  border: 1px solid var(--rule);
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.gantt-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 0 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.gantt-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.gantt-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.gantt-swatch-public { background: var(--lane-building); }
+.gantt-swatch-private { background: var(--lane-private); }
+
+.gantt-swatch-group {
+  width: auto;
+  height: auto;
+  padding: 0 0.35rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--field-bg);
+  color: var(--text);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.gantt-foot {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.gantt-tip-item + .gantt-tip-item {
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--rule);
+}
+
+.gantt-tip-private {
+  margin-left: 0.35rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--lane-private);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 500;
+  vertical-align: 0.15em;
 }
