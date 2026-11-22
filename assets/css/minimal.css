@@ -1147,3 +1147,121 @@ input:focus-visible {
   font-weight: 500;
   vertical-align: 0.15em;
 }
+
+/* ---------- Phone top bar (like destraynor.com): Menu, name, Go up ---------- */
+
+.mobile-bar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-nav {
+    display: none;
+  }
+
+  .mobile-bar {
+    --bar-ink: #1f1a12; /* dark ink reads on the yellow in both themes */
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0.7rem 1.25rem;
+    background: var(--edge);
+  }
+
+  .mobile-bar a,
+  .mobile-menu summary {
+    color: var(--bar-ink);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.15rem;
+  }
+
+  .mobile-menu {
+    justify-self: start;
+  }
+
+  .mobile-menu summary {
+    list-style: none;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 1px;
+  }
+
+  .mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-menu[open] summary::after {
+    content: " \00d7";
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 0.25rem;
+  }
+
+  .mobile-bar .mobile-name {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .mobile-top {
+    justify-self: end;
+  }
+
+  .mobile-bar a:hover,
+  .mobile-menu summary:hover {
+    color: var(--bar-ink);
+    text-decoration-thickness: 2px;
+  }
+
+  .mobile-bar a:focus-visible,
+  .mobile-menu summary:focus-visible {
+    outline: 2px solid var(--bar-ink);
+    outline-offset: 3px;
+  }
+
+  /* the open menu drops down under the bar */
+  .mobile-menu nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.25rem 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .mobile-menu nav a {
+    padding: 0.45rem 0;
+    color: var(--link);
+    font-size: 1.35rem;
+  }
+
+  .mobile-menu nav a[aria-current="page"] {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* the bar replaces the yellow strip on the home page */
+  .home {
+    border-top: 0;
+  }
+
+  /* jumps to a section land below the sticky bar */
+  [id] {
+    scroll-margin-top: 4.5rem;
+  }
+}

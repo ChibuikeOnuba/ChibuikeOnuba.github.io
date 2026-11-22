@@ -18,7 +18,22 @@
 
 <body>
 
-  <nav class="site-nav" aria-label="Main">
+  <!-- Phone-only top bar: Menu, name, back to top (desktop uses .site-nav) -->
+  <header class="mobile-bar">
+    <details class="mobile-menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="writing.html">Writing</a>
+      </nav>
+    </details>
+    <a class="mobile-name" href="index.html">Chibuike</a>
+    <a class="mobile-top" href="#">Go &uarr;</a>
+  </header>
+
+  <nav class="site-nav" aria-label="Main menu">
     <a href="index.html">Chibuike</a>
     <a href="experience.html">Experience</a>
     <a href="projects.html" aria-current="page">Projects</a>
