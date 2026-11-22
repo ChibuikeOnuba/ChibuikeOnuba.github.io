@@ -1,44 +1,18 @@
-# vCard - Personal portfolio
+# chibuikeonuba.github.io
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+Personal site of Chibuike Onuba: data scientist and ML engineer.
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+Live at **https://chibuikeonuba.github.io**
 
-## Demo
+## Pages
 
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+- `index.html`: intro and waitlist sign-up (Buttondown)
+- `experience.html`: interactive timeline, work path, education, and kind words
+- `projects.html`: selected projects
+- `writing.html`: articles
 
-## Prerequisites
+## How it's built
 
-Before you begin, ensure you have met the following requirements:
+Plain HTML and CSS, no build step. One stylesheet (`assets/css/minimal.css`) and one script (`assets/js/journey.js`, the Experience timeline). GitHub Pages serves the `main` branch.
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
-
-## Installing vCard
-
-To install **vCard**, follow these steps:
-
-Linux and macOS:
-
-```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
-
-Windows:
-
-```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
-
-## Contact
-
-If you want to contact me you can reach me at [Twitter](https://www.twitter.com/codewithsadee).
-
-## License
-
-MIT
+To preview locally, open the folder in VS Code and use Live Server.
