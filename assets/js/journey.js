@@ -43,7 +43,7 @@
     { lane: "building", date: "2023-11", title: "Autism Detection in Toddlers", note: "ML app and article", href: "projects.html" }, // article date known
     { lane: "building", date: "2024-01", title: "Parts of Speech Tagging", note: "Article", href: "writing.html" },        // known
     { lane: "building", date: "2024-02", title: "VADER vs RoBERTa", note: "Article", href: "writing.html" },                 // known
-    { lane: "building", date: "2024-03", title: "Driver Drowsiness Detection", note: "Computer vision project and write-up", href: "projects.html" }, // known
+    { lane: "building", date: "2024-03", title: "Driver Drowsiness Detection", note: "BSc project: computer vision, plus a write-up", href: "projects.html" }, // known
     { lane: "building", date: "2024-08", title: "Condition Classification", note: "ML vs Transformers on drug reviews", href: "projects.html" },
     { lane: "building", date: "2024-12", title: "Getting Started with LangChain", note: "Article", href: "writing.html" },   // known
     { lane: "building", date: "2025-03", title: "FastAPI Blog API", note: "JWT auth, CRUD API", href: "projects.html" },
@@ -93,7 +93,7 @@
       if (b) setView(b.getAttribute("data-view"));
     });
   }
-  setView("path"); // default view
+  // default view is set at the end, once the chart helpers exist
 
   // ---------- helpers ----------
   var root = document.getElementById("journey");
@@ -356,5 +356,9 @@
       });
     });
   }
+
+
+  // default: the timeline, unless a link points straight at a role in the path
+  setView(location.hash.indexOf("#role-") === 0 ? "path" : "chart");
 
 })();

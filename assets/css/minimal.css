@@ -636,15 +636,17 @@ input:focus-visible {
     font-size: 1.05rem;
   }
 
-  /* phones: roles stack, connector hidden */
+  /* phones: roles stack, the looping connector becomes a short dashed divider */
   .path .stop {
     width: 100%;
     margin: 0;
   }
 
   .path-link {
-    margin: 0;
-    height: 2.5rem;
+    width: 40%;
+    height: 0;
+    margin: 1.75rem auto;
+    border-top: 2px dashed var(--trail);
   }
 
   .path-link svg {
