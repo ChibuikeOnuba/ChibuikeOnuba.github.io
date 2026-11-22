@@ -123,7 +123,7 @@ Placement: home page, right of the photo. The newsletter sign-up sits directly u
 |---|---|---|---|
 | Customer Success Manager | Thera (YC S22) | Jan 2025 to present | Runs technical operations: AI support assistant, workflow automation, customer data |
 | Freelance Data Scientist | Upwork | Jan 2020 to Jan 2025 | ML, predictive modeling, and data visualization for clients |
-| Data Analyst | Transorp | May 2023 to Oct 2023 | Procurement analytics and supplier evaluation |
+| Data Analyst | Transcorp | May 2023 to Oct 2023 | Procurement analytics and supplier evaluation |
 | Data Scientist | OmdenaAI | Jan 2023 to May 2023 | Autism prediction model with a 50+ person team; published research |
 
 ### Writing (6)

@@ -416,34 +416,39 @@ input:focus-visible {
   max-width: 56rem;
 }
 
-/* Work path: cards alternate left/right, joined by curved dotted lines */
+/* Work path: an irregular dotted trail that runs through each role */
 
 .path {
+  --trail: color-mix(in srgb, var(--accent) 55%, transparent);
   position: relative;
 }
 
 .stop {
   position: relative;
-  width: 60%;
-  padding: 1.5rem 1.6rem 1.35rem;
-  background: var(--field-bg);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
+  width: 56%;
+  padding: 0 0 0.5rem 1.9rem;
+  /* dotted line down the left side of each role */
+  background: radial-gradient(circle, var(--trail) 1.3px, transparent 1.7px) 2.5px 0 / 9px 9px repeat-y;
 }
 
-.stop:nth-of-type(even) {
-  margin-left: auto;
+.stop:last-child {
+  background: none;
 }
 
-/* node where the path meets the card */
+/* irregular horizontal positions */
+.stop:nth-of-type(1) { margin-left: 3%; }
+.stop:nth-of-type(2) { margin-left: 41%; }
+.stop:nth-of-type(3) { margin-left: 13%; }
+.stop:nth-of-type(4) { margin-left: 36%; }
+
+/* node on the trail */
 .stop::before {
   content: "";
   position: absolute;
-  top: -7px;
-  left: 50%;
+  top: 0.3rem;
+  left: 0;
   width: 14px;
   height: 14px;
-  margin-left: -7px;
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 4px var(--bg);
@@ -454,22 +459,28 @@ input:focus-visible {
   color: var(--muted);
   font-style: italic;
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.stop-now {
+.stop-badge {
   display: inline-block;
   margin-right: 0.4rem;
   padding: 0.05rem 0.55rem;
+  border: 1px solid var(--accent);
   border-radius: 999px;
   background: var(--accent);
   color: var(--bg);
   font-style: normal;
   font-weight: 500;
-  font-size: 0.8rem;
-  letter-spacing: 0.03em;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   vertical-align: 0.1em;
+}
+
+.stop-badge-outline {
+  background: transparent;
+  color: var(--accent);
 }
 
 .stop h3 {
@@ -481,7 +492,7 @@ input:focus-visible {
 }
 
 .stop-org {
-  margin: 0.1rem 0 0.75rem;
+  margin: 0.1rem 0 0.6rem;
   color: var(--accent);
   font-family: var(--font-serif);
   font-style: italic;
@@ -489,14 +500,14 @@ input:focus-visible {
 }
 
 .stop ul {
-  margin: 0 0 1rem;
-  padding-left: 1.15rem;
+  margin: 0 0 0.85rem;
+  padding-left: 1.1rem;
   font-size: 1.05rem;
   line-height: 1.55;
 }
 
 .stop li + li {
-  margin-top: 0.35rem;
+  margin-top: 0.3rem;
 }
 
 .stop li::marker {
@@ -511,17 +522,17 @@ input:focus-visible {
 }
 
 .stop-tags span {
-  padding: 0.1rem 0.65rem;
+  padding: 0.05rem 0.6rem;
   border: 1px solid var(--rule);
   border-radius: 999px;
-  background: var(--bg);
   color: var(--muted);
   font-size: 0.85rem;
   line-height: 1.6;
 }
 
+/* curved, uneven links between roles; height set per link */
 .path-link {
-  height: 7.5rem;
+  height: var(--h, 7rem);
 }
 
 .path-link svg {
@@ -529,13 +540,13 @@ input:focus-visible {
   width: 100%;
   height: 100%;
   overflow: visible;
+  transform: translateX(7px); /* line up with the node centers */
 }
 
 .path-link path {
   fill: none;
-  stroke: var(--accent);
-  stroke-opacity: 0.55;
-  stroke-width: 2.5;
+  stroke: var(--trail);
+  stroke-width: 2.6;
   stroke-linecap: round;
   stroke-dasharray: 0 9;
   vector-effect: non-scaling-stroke;
@@ -638,24 +649,17 @@ input:focus-visible {
   }
 
   /* path becomes a straight dotted line on phones */
-  .stop {
+  .path .stop {
     width: 100%;
-    padding: 1.35rem 1.15rem 1.2rem;
+    margin-left: 0;
   }
 
   .path-link {
-    height: 3rem;
-    display: flex;
-    justify-content: center;
+    height: 2.5rem;
+    background: radial-gradient(circle, var(--trail) 1.3px, transparent 1.7px) 2.5px 0 / 9px 9px repeat-y;
   }
 
   .path-link svg {
     display: none;
-  }
-
-  .path-link::before {
-    content: "";
-    border-left: 3px dotted var(--accent);
-    opacity: 0.55;
   }
 }
