@@ -1218,6 +1218,18 @@ input:focus-visible {
     justify-self: end;
   }
 
+  /* with JavaScript, "Go ↑" waits until there is somewhere to go back up from */
+  .mobile-bar.go-auto .mobile-top {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
+
+  .mobile-bar.go-auto.show-go .mobile-top {
+    opacity: 1;
+    visibility: visible;
+  }
+
   .mobile-bar a:hover,
   .mobile-menu summary:hover {
     color: var(--bar-ink);
